@@ -1,0 +1,11 @@
+<h1>review</h1>
+
+
+<% @restaurant.reviews %>
+<% @reviews %>
+
+<ul class="list-group">
+  <% @reviews.each do |rev| %>
+    <li class="list-group-item"><%= rev.content %> - <%= rev.restaurant.name %></li>
+  <% end %>
+</ul>
