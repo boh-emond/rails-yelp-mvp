@@ -1,16 +1,26 @@
-<p><strong>Restaurant</strong></p>
+<div class="m-2">
+<h2>Restaurant</h2>
 
 <ul class="list-group">
-  <li class="list-group-item"> <%= @restaurant.name %></li>
-  <li class="list-group-item"><%= @restaurant.address %></li>
+  <li class="list-group-item">Name: <%= @restaurant.name %></li>
+  <li class="list-group-item">Address: <%= @restaurant.address %></li>
 </ul>
 
-<ul class="list-group">
-  <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %> - <%= review.rating %></li>
-  <% end %>
-</ul>
+</div>
+  <div class="m-2">
+  <h2>Reviews for this restaurant</h2>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %> - <%= review.rating %></li>
+    <% end %>
+  </ul>
+  </div>
 
-
-<%=link_to "back", restaurants_path%>
-<%=link_to "add a review",  new_restaurant_review_path(@restaurant)%>
+<div class="d-flex  align-items-end">
+  <div class=" flex-column mx-1">
+  <%=link_to "back", restaurants_path, class:"btn btn-primary"%>
+  </div>
+  <div class= "mx-1">
+  <%=link_to "add a review",  new_restaurant_review_path(@restaurant), class:"btn btn-primary"%>
+  </div>
+</div>

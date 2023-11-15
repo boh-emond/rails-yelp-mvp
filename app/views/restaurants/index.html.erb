@@ -1,15 +1,28 @@
 
-<ul>
-  <% @restaurants.each do |restaurant| %>
-  <li> <%= restaurant.name%> - <%= restaurant.address%>- <%= link_to "reviews", review_path(restaurant)%></li>
-  <% end %>
-</ul>
 
+<div class="d-flex-column flex-fill">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @restaurants.each do |restaurant| %>
+    <tr>
+      <th scope="row"><%= restaurant.id + 1 %></th>
+      <td><%= restaurant.name%></td>
+      <td><%= restaurant.address%></td>
+      <td><%= link_to "view details", restaurant_path(restaurant) %></td>
+       <% end %>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  <% end %>
-</ul>
-
-<%= link_to "create a restaurant", new_restaurant_path%>
+<div class="m-auto">
+<%= link_to "create a new restaurant", new_restaurant_path, class:"btn btn-primary"%>
+</div>
